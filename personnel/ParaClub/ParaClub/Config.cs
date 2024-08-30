@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ex_Parachutes
+namespace ParaClub
 {
-    internal class Program
+    static class Config
     {
-        static void Main(string[] args)
-        {
-        }
+        public const int SCREEN_HEIGHT = 40;
+        public const int SCREEN_WIDTH = 150;
     }
 }
