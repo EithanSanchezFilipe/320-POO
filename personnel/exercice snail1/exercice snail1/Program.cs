@@ -1,33 +1,35 @@
 ﻿using System;
 using System.Threading;
+using System.Collections.Generic;
 namespace exercice_snail1
 {
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            int PV = 50;
-            const int MAXPV = 50;
+            //Variables
+            List<Snail> snails = new List<Snail>();
+            Snail toto = new Snail(10);
+            snails.Add(toto);
+            Snail titi = new Snail(20);
+            snails.Add(titi);
+
+            //Code
             Console.CursorVisible = false;
-            for(int x = 0; x < MAXPV; x++)
+            while (toto.plife > 0)
             {
                 Console.Clear();
-                Console.SetCursorPosition(0, 7);
-                for (int y = 0; y < x; y++)
+                foreach (Snail snail in snails)
                 {
-                    Console.Write(" ");
+                    snail.Render();
+                    snail.Move();
                 }
-                PV--;
-                if (PV == 0)
-                    Console.WriteLine("____");
-                else
-                    Console.Write("_@_ö");
-                Thread.Sleep(50);
-               
-
+                Thread.Sleep(40);
             }
+            foreach(Snail snail in snails)
+                snail.Dead();
             Console.ReadLine();
-            
         }
     }
 }
