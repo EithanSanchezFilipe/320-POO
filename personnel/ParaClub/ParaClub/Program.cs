@@ -12,15 +12,12 @@ namespace ParaClub
         {
             Console.SetWindowSize(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
             Plane plane = new Plane();
-            Para bob = new Para("bob");
-            
-            while (plane._x < Config.SCREEN_WIDTH)
+            List<Para> Parachutistes = new List<Para>();
+
+
+            while (true)
             {
-                
                 Console.Clear();
-                plane.Render();
-                plane.Move();
-                Thread.Sleep(40);
                 if (Console.KeyAvailable)
                 {
                     var keyPressed = Console.ReadKey(true);
@@ -30,11 +27,22 @@ namespace ParaClub
                             Environment.Exit(0);
                             break;
                         case ConsoleKey.Spacebar:
+                            Parachutistes.Add(new Para(plane._x));
                             break;
-        }
+                    }
                 }
+                plane.Move();
+                foreach (Para para in Parachutistes)
+                {
+                    para.Move();
+                }
+                plane.Render();
+                foreach (Para para in Parachutistes)
+                {
+                    para.Render();
+                }
+                Thread.Sleep(100);
             }
-            Console.ReadLine();
         }
     }
 }
