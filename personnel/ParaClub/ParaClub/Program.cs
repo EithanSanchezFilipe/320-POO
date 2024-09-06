@@ -15,6 +15,7 @@ namespace ParaClub
             
             while (plane._x < Config.SCREEN_WIDTH)
             {
+                
                 Console.Clear();
                 plane.Render();
                 plane.Move();
