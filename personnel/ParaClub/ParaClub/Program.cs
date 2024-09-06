@@ -21,6 +21,18 @@ namespace ParaClub
                 plane.Render();
                 plane.Move();
                 Thread.Sleep(40);
+                if (Console.KeyAvailable)
+                {
+                    var keyPressed = Console.ReadKey(true);
+                    switch (keyPressed.Key)
+                    {
+                        case ConsoleKey.Escape:
+                            Environment.Exit(0);
+                            break;
+                        case ConsoleKey.Spacebar:
+                            break;
+        }
+                }
             }
             Console.ReadLine();
         }
