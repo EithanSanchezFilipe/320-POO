@@ -14,10 +14,9 @@ namespace ParaClub
             Plane plane = new Plane();
             List<Para> Parachutistes = new List<Para>();
 
-
+            Console.CursorVisible = false;
             while (true)
             {
-                Console.Clear();
                 if (Console.KeyAvailable)
                 {
                     var keyPressed = Console.ReadKey(true);

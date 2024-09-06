@@ -8,10 +8,11 @@ namespace ParaClub
 {
     public class Para
     {
-        public string Name;
-        private int _y;
+        private string Name;
+        private int _y = 6;
         private int _x;
-        public bool paraOpen = false;
+        private bool paraOpen = false;
+        private bool isRender = false;
         private string[] withoutParachute =
         {
              @"     ",
@@ -21,43 +22,73 @@ namespace ParaClub
              @" /░\ ",
              @" / \ ",
         };
+        private string[] withParachute =
+{
+         @" ___ ",
+         @"/|||\",
+         @"\   /",
+         @" \o/ ",
+         @"  ░  ",
+         @" / \ ",
+     };
 
         public Para(int x)
         {
-            _x = x;
+            _x = x +14;
         }
         public void Move()
         {
-            if (_y >= Config.SCREEN_HEIGHT - 7)
+            int currentY = _y;
+            if (currentY >= Config.SCREEN_HEIGHT - withParachute.Length - 1)
             {
                 paraOpen = false;
+                isRender = false;
             }
             else
             {
-                if (_y > Config.SCREEN_HEIGHT / 2)
+                if (currentY == Config.SCREEN_HEIGHT / 2)
                 {
                     paraOpen = true;
+                    isRender = false;
+
                 }
                 if (!paraOpen)
                 {
-                    _y += 3;
+                    _y += 2;
                 }
                 else if (paraOpen)
                 {
                     _y += 1;
                 }
+                if(isRender == true)
+                    Console.MoveBufferArea(_x, currentY, withoutParachute[0].Length, withoutParachute.Length, _x, _y);
             }
 
 
         }
         public void Render()
         {
-            for (int i = 0; i < withoutParachute.Length; i++)
+            if (!isRender)
             {
+                if (paraOpen)
+                {
+                    for (int i = 0; i < withParachute.Length; i++)
+                   {
+                        Console.SetCursorPosition(_x, _y+ i);
+                        Console.WriteLine(withParachute[i]);
+                    }
+                    isRender = true;
+                }
+                else
+                {
+                    for (int i = 0; i < withoutParachute.Length; i++)
+                    {
 
-                Console.SetCursorPosition(_x, _y + i);
-                Console.WriteLine(withoutParachute[i]);
-
+                        Console.SetCursorPosition(_x, _y + i);
+                        Console.WriteLine(withoutParachute[i]);
+                    }
+                    isRender=true;
+                }
             }
         }
     }
