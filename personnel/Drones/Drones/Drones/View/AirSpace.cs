@@ -40,7 +40,7 @@ namespace Drones
             }
             foreach (Building building in buildings)
             {
-                building.Render(airspace);
+                building.Render(airspace, building);
             }
             airspace.Render();
         }
