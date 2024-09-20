@@ -7,9 +7,10 @@
 
         public static readonly int FULLCHARGE = 1000;  // La charge actuelle de la batterie
         private string _name;                           // Un nom
-        private int _charge;
+        public int Charge;
         private int _x;                                 // Position en X depuis la gauche de l'espace aérien
         private int _y;                                 // Position en Y depuis le haut de l'espace aérien
+        public bool LowBattery { get; private set; }
 
         public string Name { get => _name; set => _name = value; }
         public int X { get => _x; set => _x = value; }
@@ -20,7 +21,7 @@
             _name = name;
             _x = x;
             _y = y;
-            _charge = Helper.alea.Next(FULLCHARGE);
+            Charge = FULLCHARGE;
         }
 
         // Cette méthode calcule le nouvel état dans lequel le drone se trouve après
@@ -29,7 +30,9 @@
         {
             _x += 2;                                    // Il s'est déplacé de 2 pixels vers la droite
             _y += Helper.alea.Next(-2, 3);              // Il s'est déplacé d'une valeur aléatoire vers le haut ou le bas
-            _charge--;                                  // Il a dépensé de l'énergie
+            Charge--;                                  // Il a dépensé de l'énergie
+            if(Charge == FULLCHARGE / 5)
+                LowBattery = true;
         }
 
     }
