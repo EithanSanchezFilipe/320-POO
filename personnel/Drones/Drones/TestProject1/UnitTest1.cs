@@ -1,5 +1,4 @@
 using Drones;
-
 namespace TestProject1
 {
     [TestClass]
@@ -44,5 +43,7 @@ namespace TestProject1
             // Assert
             Assert.IsTrue(drone.LowBattery, "le mode lowbattery ne s'active pas");
         }
+
+
     }
 }

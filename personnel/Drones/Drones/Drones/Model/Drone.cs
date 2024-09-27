@@ -1,7 +1,7 @@
 ﻿namespace Drones
 {
     // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
-    public partial class Drone
+    public partial class Drone : IExpellable
     {
 
 
@@ -23,6 +23,13 @@
             _y = y;
             Charge = FULLCHARGE;
         }
+        public Drone(int x, int y)
+        {
+            _name = "bob";
+            _x = x;
+            _y = y;
+            Charge = FULLCHARGE;
+        }
 
         // Cette méthode calcule le nouvel état dans lequel le drone se trouve après
         // que 'interval' millisecondes se sont écoulées
@@ -35,5 +42,19 @@
                 LowBattery = true;
         }
 
+        public bool Evacuate(Rectangle zone)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void FreeFlight()
+        {
+            throw new NotImplementedException();
+        }
+
+        public EvacuationState GetEvacuationState()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
