@@ -10,8 +10,8 @@ namespace Drones
         public static readonly int HEIGHT = 600;
 
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
-        private List<Drone> fleet;
-        private List<Building> buildings;
+        private List<Drone> _fleet;
+        private List<Building> _buildings;
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
 
@@ -24,8 +24,10 @@ namespace Drones
             // Creates a BufferedGraphics instance associated with this form, and with
             // dimensions the same size as the drawing surface of the form.
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
-            this.fleet = fleet;
-            this.buildings = buildings;
+            this._fleet = fleet;
+            this._buildings = buildings;
+            if (_fleet.Count > 9)
+                throw new Exception("Il ne peut pas y avoir plus de 10 drones");
         }
 
         // Affichage de la situation actuelle
@@ -34,11 +36,11 @@ namespace Drones
             airspace.Graphics.Clear(Color.AliceBlue);
 
             // draw drones
-            foreach (Drone drone in fleet)
+            foreach (Drone drone in _fleet)
             {
                 drone.Render(airspace);
             }
-            foreach (Building building in buildings)
+            foreach (Building building in _buildings)
             {
                 building.Render(airspace, building);
             }
@@ -48,7 +50,7 @@ namespace Drones
         // Calcul du nouvel état après que 'interval' millisecondes se sont écoulées
         private void Update(int interval)
         {
-            foreach (Drone drone in fleet)
+            foreach (Drone drone in _fleet)
             {
                 drone.Update(interval);
             }

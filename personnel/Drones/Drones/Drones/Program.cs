@@ -13,14 +13,22 @@ namespace Drones
             ApplicationConfiguration.Initialize();
 
             // Création de la flotte de drones
-            List<Drone> fleet= new List<Drone>();
+            List<Drone> fleet = new List<Drone>();
             List<Building> buildings = new List<Building>();
             string[] openingHours = { "Lundi: 8h-18h", "Mardi: 8h-18h", "Mercredi: 8h-18h" };
+            //for(int i = 0; i < 10; i++)
             fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
             buildings.Add(new Store(200, 200, 50, 50, openingHours));
             buildings.Add(new Factory(400, 400, 50, 50, 154));
             // Démarrage
-            Application.Run(new AirSpace(fleet, buildings));
+            try
+            {
+                Application.Run(new AirSpace(fleet, buildings));
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine($"Une erreur est survenue {e.Message}" );
+            }
         }
     }
 }
