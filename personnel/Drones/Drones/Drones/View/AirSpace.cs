@@ -53,6 +53,8 @@ namespace Drones
             foreach (Drone drone in _fleet)
             {
                 drone.Update(interval);
+                drone.Evacuate(new Rectangle(100, 100, 150, 150));
+
             }
         }
 
