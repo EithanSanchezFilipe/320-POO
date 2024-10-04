@@ -16,7 +16,8 @@ namespace Drones.Model
         }
         public void CreateBox(Box box)
         {
-            Boxes.Add(box);
+            Boxes.Add(box); 
+            Console.WriteLine($"Dispatch: Box created with ID: {box.ID}, Weight: {box.Kilogrammes}kg, Color: {box.Color}");
         }
 
         public void RemoveBox(Box box)

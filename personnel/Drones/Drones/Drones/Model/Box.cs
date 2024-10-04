@@ -8,12 +8,15 @@ namespace Drones.Model
 {
     public class Box
     {
-        public static int ID;
+        public int ID;
         public int Kilogrammes;
         public Color Color;
-        public Box(Dispatch dispatch)
+        public Box(Dispatch dispatch ,int id, int kg, Color color)
         {
-            dispatch.Boxes.Add(this);
+            ID = id;
+            Kilogrammes = kg;
+            Color = color;
+            dispatch.CreateBox(this);
         }
     }
 }
