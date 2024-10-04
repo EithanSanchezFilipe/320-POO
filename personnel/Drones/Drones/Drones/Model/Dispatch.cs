@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace Drones.Model
 {
-    public class Dispatch
+    public class Dispatch : IDispatchable
     {
+        public List<Box> Boxes { get; set; }
+
+        public Dispatch()
+        { 
+            Boxes = new List<Box>();
+        }
+        public void CreateBox(Box box)
+        {
+            Boxes.Add(box);
+        }
+
+        public void RemoveBox(Box box)
+        {
+            Boxes.Remove(box);
+        }
     }
 }
