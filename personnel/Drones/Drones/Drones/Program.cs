@@ -1,3 +1,5 @@
+using Drones.Model;
+
 namespace Drones
 {
     internal static class Program
@@ -15,6 +17,7 @@ namespace Drones
             // Création de la flotte de drones
             List<Drone> fleet = new List<Drone>();
             List<Building> buildings = new List<Building>();
+            Dispatch dispatch = new Dispatch();
             string[] openingHours = { "Lundi: 8h-18h", "Mardi: 8h-18h", "Mercredi: 8h-18h" };
             //for(int i = 0; i < 10; i++)
             fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
@@ -23,7 +26,7 @@ namespace Drones
             // Démarrage
             try
             {
-                Application.Run(new AirSpace(fleet, buildings));
+                Application.Run(new AirSpace(fleet, buildings, dispatch));
             }
             catch(Exception e)
             {

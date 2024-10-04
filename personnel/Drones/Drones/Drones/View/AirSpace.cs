@@ -1,3 +1,5 @@
+using Drones.Model;
+
 namespace Drones
 {
     // La classe AirSpace représente le territoire au dessus duquel les drones peuvent voler
@@ -12,11 +14,12 @@ namespace Drones
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
         private List<Drone> _fleet;
         private List<Building> _buildings;
+        private Dispatch _dispatch
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
 
         // Initialisation de l'espace aérien avec un certain nombre de drones
-        public AirSpace(List<Drone> fleet, List<Building> buildings)
+        public AirSpace(List<Drone> fleet, List<Building> buildings, Dispatch dispatch)
         {
             InitializeComponent();
             // Gets a reference to the current BufferedGraphicsContext
@@ -26,6 +29,7 @@ namespace Drones
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             this._fleet = fleet;
             this._buildings = buildings;
+            this._dispatch = dispatch;
             if (_fleet.Count > 9)
                 throw new Exception("Il ne peut pas y avoir plus de 10 drones");
         }
