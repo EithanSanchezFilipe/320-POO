@@ -8,6 +8,12 @@ namespace Drones.Model
 {
     public class Box
     {
-        public int id;
+ 
+
+        public Box()
+        {
+
+        }
+
     }
 }
