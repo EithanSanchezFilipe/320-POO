@@ -1,7 +1,4 @@
-﻿
-using Drones.Model;
-
-namespace Drones
+﻿namespace Drones
 {
     public partial class Factory : Building
     {

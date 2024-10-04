@@ -71,21 +71,31 @@ namespace TestProject1
         }
 
         [TestMethod]
-        public void Test_that_drone_is_evacuating_zone()
+        public void Test_that_a_Box_is_created()
         {
             // Arrange
-            Drone drone = new Drone(500, 500);
+            Dispatch dispatch = new Dispatch();
+            Box box;
 
             //Act
-            bool response = drone.Evacuate(new System.Drawing.Rectangle(400, 400, 200, 200));
+            box = new Box(dispatch, 1, Helper.alea.Next(5, 10), Helper.SmartiesColors[Helper.alea.Next(0, 4)]);
 
             //Assert
-            Assert.AreEqual(EvacuationState.Evacuating, drone.GetEvacuationState());
+            Assert.AreEqual(box, dispatch.Boxes.First());
+        }
+
+        [TestMethod]
+        public void Test_that_a_Box_is_Removed()
+        {
+            // Arrange
+            Dispatch dispatch = new Dispatch();
+            Box box = new Box(dispatch, 1, Helper.alea.Next(5, 10), Helper.SmartiesColors[Helper.alea.Next(0, 4)]); ;
 
             //Act
-            Thread.Sleep(500);
-            // Assert
-            Assert.AreEqual(EvacuationState.Free, drone.GetEvacuationState());
+            dispatch.RemoveBox(box);
+
+            //Assert
+            Assert.AreEqual(0, dispatch.Boxes.Count);
         }
     }
 }
