@@ -62,7 +62,7 @@ namespace Drones
             foreach(Building building in _buildings)
             {
                 if (building is Factory factory)
-                    factory.Update(interval);
+                    factory.Update(interval, _dispatch);
             }
         }
 

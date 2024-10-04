@@ -1,4 +1,6 @@
 ﻿
+using Drones.Model;
+
 namespace Drones
 {
     public partial class Factory : Building
@@ -16,12 +18,13 @@ namespace Drones
         {
             Console.WriteLine(_powerConsumption);
         }
-        public void Update(int interval)
+        public void Update(int interval, Dispatch dispatch)
         {
             _boxProdTimer += interval;
             if(_boxProdTimer >= Helper.BOX_PROD_DELAY + Helper.alea.Next(0, 1500))
             {
                 Console.WriteLine("A box is being created");
+                Box box = new Box(dispatch);
                 _boxProdTimer = 0;
             }
 
