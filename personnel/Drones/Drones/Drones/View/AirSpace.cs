@@ -14,7 +14,7 @@ namespace Drones
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
         private List<Drone> _fleet;
         private List<Building> _buildings;
-        private Dispatch _dispatch
+        private Dispatch _dispatch;
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
 
