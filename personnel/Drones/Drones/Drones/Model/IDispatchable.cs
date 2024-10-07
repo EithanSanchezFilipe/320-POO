@@ -1,5 +1,4 @@
-﻿
-namespace Drones
+﻿namespace Drones.Model
 {
     public interface IDispatchable
     {
