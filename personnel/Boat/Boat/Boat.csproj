@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Boat.cs" />
+    <Compile Include="Radioactiv.cs" />
+    <Compile Include="RadioActive.cs" />
+    <Compile Include="Fridge.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

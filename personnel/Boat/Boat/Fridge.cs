@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Boat
 {
-    internal class Container
+    internal class Fridge
     {
     }
 }
