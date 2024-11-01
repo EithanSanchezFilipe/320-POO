@@ -43,9 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Boat.cs" />
+    <Compile Include="Bateau.cs" />
+    <Compile Include="Container.cs" />
     <Compile Include="Radioactiv.cs" />
-    <Compile Include="RadioActive.cs" />
     <Compile Include="Fridge.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

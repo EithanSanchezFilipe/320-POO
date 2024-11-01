@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Boat
 {
-    internal class Fridge
+    internal class Radioactiv : Container
     {
+        public int RandMax {  get; private set; }
+        public Radioactiv(int Weight, int RandMax) : base(Weight)
+        {
+            this.RandMax = RandMax;
+        }
     }
 }

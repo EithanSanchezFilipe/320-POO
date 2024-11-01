@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Boat
 {
-    internal class Fridge
+    internal class Fridge : Container
     {
+        public int Temperature { get; private set; }
+
+        public Fridge(int Weight, int Temperature) : base(Weight)
+        {
+            this.Temperature = Temperature;
+        }
     }
 }
